@@ -59,7 +59,6 @@ class ImportTransactionsService {
     await new Promise(resolve => csvParser.on('end', resolve));
 
     const existentCategories = await categoriesRepository.find({
-      select: ['title'],
       where: { title: In(categories) },
     });
 
